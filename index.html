@@ -1,23 +1,576 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "개인파산 신청 자격 조건은 어떻게 되나요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "개인파산은 채무자가 자신의 재산으로 모든 채무를 변제할 수 없는 지급불능 상태에 빠진 경우 신청할 수 있습니다. 최저생계비 대비 소득이 적거나 없어야 하며, 보유한 자산의 가치보다 채무가 더 많아야 자격이 주어집니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "개인파산 신청 시 발생하는 평균 비용은 얼마인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "법원에 납부하는 송달료와 인지대, 그리고 파산관재인 선임 비용을 포함한 법원 예납금과 함께, 전문 대리인 수임료가 발생합니다. 평균적인 법률 대리인 비용은 사건의 난이도에 따라 차이가 있습니다."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "개인회생과 개인파산의 가장 큰 차이점은 무엇인가요?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "개인회생은 일정한 소득을 바탕으로 3년에서 5년 동안 법원이 정한 금액을 변제한 후 남은 채무를 면책받는 제도입니다. 반면 개인파산은 보유 자산을 처분하여 채권자에게 배당한 뒤 남은 채무를 즉시 면책받는 제도로 소득이 없거나 최저생계비 미만인 경우에 적합합니다."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            line-height: 1.8; 
+            margin: 0; 
+            padding: 0; 
+            background: #f4f6f9; 
+            color: #2d3748; 
+        }
+        header, section, footer { 
+            max-width: 1100px; 
+            margin: 30px auto; 
+            padding: 35px 30px; 
+            background: #ffffff; 
+            border-radius: 14px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+        }
+        
+        h1 { 
+            color: #1e3a8a; 
+            font-size: 2.2em; 
+            text-align: center; 
+            margin-bottom: 15px; 
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        h2 { 
+            color: #0f766e; 
+            border-bottom: 3px solid #e2e8f0; 
+            padding-bottom: 12px; 
+            margin-top: 40px; 
+            font-size: 1.6em;
+            font-weight: 600;
+        }
+        h3 { 
+            color: #2c5282; 
+            margin-top: 25px; 
+            font-size: 1.25em;
+            font-weight: 600;
+        }
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        ul, ol { 
+            padding-left: 25px; 
+            margin-bottom: 25px; 
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: separate; 
+            border-spacing: 0; 
+            margin: 25px 0; 
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        th, td { 
+            padding: 16px; 
+            text-align: left; 
+        }
+        th { 
+            background: #1e3a8a; 
+            color: #ffffff; 
+            font-weight: 600;
+        }
+        td { 
+            background: #ffffff; 
+            border-bottom: 1px solid #e2e8f0; 
+        }
+        tr:last-child td { 
+            border-bottom: none; 
+        }
+        tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        
+        a { 
+            color: #1e3a8a; 
+            text-decoration: none; 
+            font-weight: 500;
+        }
+        a:hover { 
+            text-decoration: underline; 
+        }
+        
+        .btn-cta {
+            display: block; 
+            width: 85%;
+            max-width: 500px;
+            margin: 35px auto;
+            padding: 20px 35px;
+            background: #b45309; 
+            color: #ffffff;
+            font-size: 1.25em;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(180, 83, 9, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-cta:hover {
+            background: #92400e;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(180, 83, 9, 0.4);
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        form label { 
+            font-weight: 600; 
+            display: block; 
+            margin-top: 20px; 
+            color: #4a5568; 
+        }
+        form input[type="text"], 
+        form input[type="tel"], 
+        form input[type="number"], 
+        form select, 
+        form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-top: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background-color: #f8fafc;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+        form input:focus, form select:focus, form textarea:focus {
+            border-color: #1e3a8a;
+            background-color: #ffffff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
+        .info-box {
+            background: #f0fdf4; 
+            border-left: 5px solid #16a34a;
+            padding: 22px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        .info-box p {
+            margin: 0;
+            color: #14532d;
+        }
+        
+        .anchor { 
+            display: block; 
+            position: relative; 
+            top: -80px; 
+            visibility: hidden; 
+        }
+
+        /* 통계 그래프 스타일 추가 */
+        .chart-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+        .chart-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #1e3a8a;
+        }
+        .chart-bar-group {
+            margin-bottom: 15px;
+        }
+        .chart-label {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            color: #4a5568;
+        }
+        .chart-bar-wrapper {
+            background: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+            height: 24px;
+        }
+        .chart-bar {
+            height: 100%;
+            background: #3b82f6;
+            text-align: right;
+            padding-right: 10px;
+            color: white;
+            font-size: 0.85em;
+            line-height: 24px;
+            font-weight: 600;
+        }
+
+        @media(max-width: 768px) {
+            header, section, footer { 
+                margin: 15px; 
+                padding: 20px 15px; 
+            }
+            h1 { font-size: 1.7em; }
+            h2 { font-size: 1.35em; }
+            .btn-cta { width: 95%; padding: 16px 0; font-size: 1.1em; }
+            th, td { padding: 12px 8px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>2026년 기준 개인파산 및 면책 신청 절차와 <br>합리적인 법률 대리인 비용 비교 가이드</h1>
+        <p>감당하기 힘든 부채로 고통받고 계신 분들을 위해 2026년 개정 법률 기준에 맞춘 개인파산제도의 자격 조건, 준비 서류, 그리고 법원별 실질적인 심사 기준을 객관적으로 분석해 드립니다.</p>
+        <a href="#eligibility-calculator" class="btn-cta">나의 파산 면책 예상 자격 자가진단 해보기</a>
+    </header>
+
+    <nav aria-label="상세 정보 바로가기">
+        <ul style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; justify-content: center; gap: 15px; background: #edf2f7; padding: 15px; border-radius: 8px;">
+            <li><a href="#eligibility-calculator">자가진단 계산기</a></li>
+            <li><a href="#system-comparison">회생 파산 차이점</a></li>
+            <li><a href="#cost-analysis">비용 및 견적 분석</a></li>
+            <li><a href="#regional-trends">지역별 법원 경향</a></li>
+            <li><a href="#community-reviews">커뮤니티 실제 후기</a></li>
+            <li><a href="#faq-section">상세 FAQ 및 질의응답</a></li>
+            <li><a href="#consulting-form">전문 컨설팅 신청</a></li>
+        </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <section id="eligibility-calculator">
+        <span id="eligibility-calculator-anchor" class="anchor"></span>
+        <h2>1. 나의 파산 자격 여부 간이 계산기 및 정보 입력</h2>
+        <p>개인파산은 본인의 소득과 재산 규모, 가족 구성원에 따른 최저생계비 기준을 종합적으로 고려하여 판단해야 합니다. 아래 정보를 정확하게 입력하시면 최적의 구제 방안을 확인하는 첫걸음이 됩니다.</p>
+        
+        <form action="/eligibility-submit" method="POST" style="max-width:900px; margin:auto;">
+            <h3>기본 자격 심사 요건 입력</h3>
+            
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap: 4%;">
+                <div style="width:48%;">
+                    <label for="user-age">연령대 선택</label>
+                    <select id="user-age" name="user_age" required>
+                        <option value="">선택하세요</option>
+                        <option value="20대">20대 청년층</option>
+                        <option value="30대">30대 청년층</option>
+                        <option value="40대">40대 중장년층</option>
+                        <option value="50대">50대 중장년층</option>
+                        <option value="60대">60대 이상 고령층</option>
+                    </select>
+                </div>
+                <div style="width:48%;">
+                    <label for="user-region">거주 지역 선택</label>
+                    <select id="user-region" name="user_region" required>
+                        <option value="">선택하세요</option>
+                        <option value="서울">서울특별시</option>
+                        <option value="부산">부산광역시</option>
+                        <option value="대구">대구광역시</option>
+                        <option value="인천">인천광역시</option>
+                        <option value="광주">광주광역시</option>
+                        <option value="대전">대전광역시</option>
+                        <option value="울산">울산광역시</option>
+                        <option value="세종">세종특별자치시</option>
+                        <option value="수원">경기도 수원시</option>
+                        <option value="고양">경기도 고양시</option>
+                        <option value="용인">경기도 용인시</option>
+                        <option value="성남">경기도 성남시</option>
+                        <option value="부천">경기도 부천시</option>
+                        <option value="안산">경기도 안산시</option>
+                        <option value="화성">경기도 화성시</option>
+                        <option value="남양주">경기도 남양주시</option>
+                        <option value="안양">경기도 안양시</option>
+                        <option value="평택">경기도 평택시</option>
+                        <option value="의정부">경기도 의정부시</option>
+                        <option value="파주">경기도 파주시</option>
+                        <option value="시흥">경기도 시흥시</option>
+                        <option value="김포">경기도 김포시</option>
+                        <option value="창원">경상남도 창원시</option>
+                        <option value="청주">충청북도 청주시</option>
+                        <option value="전주">전라북도 전주시</option>
+                        <option value="천안">충청남도 천안시</option>
+                        <option value="김해">경상남도 김해시</option>
+                        <option value="포항">경상북도 포항시</option>
+                        <option value="제주">제주특별자치도 제주시</option>
+                        <option value="원주">강원도 원주시</option>
+                        <option value="구미">경상북도 구미시</option>
+                        <option value="아산">충청남도 아산시</option>
+                        <option value="양산">경상남도 양산시</option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap: 4%;">
+                <div style="width:48%;">
+                    <label for="total-debt">예상 채무 총액 (원)</label>
+                    <input type="number" id="total-debt" name="total_debt" required placeholder="예: 50000000">
+                </div>
+                <div style="width:48%;">
+                    <label for="monthly-income">현재 월 평균 소득 (원)</label>
+                    <input type="number" id="monthly-income" name="monthly_income" required placeholder="예: 1200000">
+                </div>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap: 4%;">
+                <div style="width:48%;">
+                    <label for="dependents">부양 가족 수 (본인 제외)</label>
+                    <select id="dependents" name="dependents" required>
+                        <option value="0">없음 (1인 가구)</option>
+                        <option value="1">1명 (2인 가구)</option>
+                        <option value="2">2명 (3인 가구)</option>
+                        <option value="3">3명 이상 (4인 가구 이상)</option>
+                    </select>
+                </div>
+                <div style="width:48%;">
+                    <label for="total-assets">보유 총 재산 가치 (부동산, 예적금, 보증금 등)</label>
+                    <input type="number" id="total-assets" name="total_assets" required placeholder="예: 15000000">
+                </div>
+            </div>
+
+            <label for="debt-reason">채무 발생 원인</label>
+            <select id="debt-reason" name="debt_reason">
+                <option value="생활비">실직 또는 건강 악화로 인한 생활비 부족</option>
+                <option value="사업실패">사업 실패 및 보증 채무</option>
+                <option value="투자실패">주식, 가상화폐 등 투자 및 도박성 채무</option>
+                <option value="사기피해">사기 피해 등 타인에 의한 채무 발생</option>
+            </select>
+
+            <button type="submit" class="btn-cta">실시간 예상 자격 결과 확인 및 무료 견적 보기</button>
+        </form>
+    </section>
+
+    <section id="system-comparison">
+        <span id="system-comparison-anchor" class="anchor"></span>
+        <h2>2. 채무조정제도 이해: 개인회생과 개인파산의 장단점 및 차이점</h2>
+        <p>감당하기 힘든 빚 독촉에서 벗어나고자 할 때, 네이버나 구글 등 검색 엔진을 통해 많은 분들이 개인회생과 개인파산 중 어느 제도가 자신에게 유리한지 비교 분석하곤 합니다. 두 제도는 채무자의 소득 유무와 변제 가능성에 따라 완전히 다른 성격을 가집니다.</p>
+        
+        <p>개인파산의 장점은 법원의 면책 결정이 내려지면 원금과 이자를 포함한 채무 전액을 즉시 탕감받을 수 있다는 점입니다. 소득 활동을 하기 어려운 고령자나 중증 질환자, 혹은 장애가 있어 수입이 최저생계비 미만인 분들에게 가장 합리적인 해결책이 됩니다. 단점으로는 가용한 모든 자산을 청산하여 채권자에게 배당해야 하며, 면책이 확정될 때까지 금융 거래 제한 및 일부 자격증 소지 제한 등 법률상의 지위 박탈이 일시적으로 발생할 수 있습니다.</p>
+
+        <p>반면 개인회생은 소득이 있는 자가 3년에서 5년 동안 가구원 수 기준 최저생계비를 제외한 나머지 가용소득을 꾸준히 변제금으로 납부하고 남은 부채를 면책받는 제도입니다. 변제 재원을 지속적으로 공급해야 하므로 아르바이트든 급여 소득이든 꾸준히 발생해야 신청이 가능합니다. 이 제도는 공무원 자격이나 전문직 지위를 그대로 유지할 수 있고, 재산도 지킬 수 있다는 장점이 있습니다.</p>
+
+        <div class="chart-container">
+            <div class="chart-title">2026년 기준 채무조정 제도 선택 비율 추이</div>
+            <div class="chart-bar-group">
+                <div class="chart-label">소득 활동이 가능하며 안정적 급여가 있는 신청자 (주로 개인회생 선택)</div>
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="width: 78%;">78%</div>
+                </div>
+            </div>
+            <div class="chart-bar-group">
+                <div class="chart-label">고령, 질병으로 근로 능력 상실 및 무소득 신청자 (주로 개인파산 선택)</div>
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="width: 89%; background: #0f766e;">89%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>구분 항목</th>
+                    <th>개인파산 및 면책 제도</th>
+                    <th>개인회생 제도</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>신청 대상자 자격</td>
+                    <td>무소득자 또는 월평균 소득이 최저생계비 이하인 채무자</td>
+                    <td>지속적이고 반복적인 수입이 증명되는 급여/영업소득자</td>
+                </tr>
+                <tr>
+                    <td>채무 금액 한도</td>
+                    <td>금액 제한 없음 (무담보, 담보 불문)</td>
+                    <td>무담보 채무 10억 원, 담보 채무 15억 원 이하</td>
+                </tr>
+                <tr>
+                    <td>주요 장점</td>
+                    <td>원금과 이자 전액 즉시 면책, 재기 발판 마련</td>
+                    <td>전문직 자격 및 직장 유지 가능, 본인 재산 보존 가능</td>
+                </tr>
+                <tr>
+                    <td>가장 큰 단점</td>
+                    <td>본인 소유 자산 처분 필요, 면책 지연 시 신용 불이익</td>
+                    <td>최대 5년간 엄격한 생계 제한 및 매월 변제금 납부 의무</td>
+                </tr>
+                <tr>
+                    <td>면책 채무 비율</td>
+                    <td>법원 심사 통과 시 원금 포함 100% 전액 탕감</td>
+                    <td>소득 수준과 부양가족에 따라 원금의 최대 90% 이상 감면</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <p>팁: 많은 신청자들이 디시, 보배드림, 펨코, 에펨코리아 같은 인터넷 커뮤니티의 내돈내산 후기나 질문 글에 의존하는 경향이 있습니다. 하지만 개개인의 자산과 채무 구조는 완전히 다르므로, 전문 법률 업체의 개별 맞춤 상담을 거치지 않으면 신청 기각 등 예상치 못한 불이익을 당할 수 있어 주의가 요구됩니다.</p>
+        </div>
+    </section>
+
+    <section id="cost-analysis">
+        <span id="cost-analysis-anchor" class="anchor"></span>
+        <h2>3. 개인파산 신청 시 필요한 실제 소요 비용 및 평균 금액 견적</h2>
+        <p>파산을 고민하시는 분들이 가장 먼저 궁금해하는 부분 중 하나는 과연 진행 비용이 얼마이고, 사전에 준비해야 하는 예산은 어느 정도인가 하는 점입니다. 법원에 납부하는 필수 공과금과 전문가 선임료를 포함하여 꼼꼼한 비교가 필요합니다.</p>
+        
+        <h3>법원 납부 비용의 구성 요소</h3>
+        <p>개인파산 및 면책을 진행할 때 법원에 직접 납부해야 하는 필수 실비용은 크게 세 가지로 분류됩니다. 첫째는 정부 수입인지로 종이 문서 신청 시 2,000원, 전자 소송 인터넷 신청 시 1,800원의 인지대가 발생합니다. 둘째는 우편 송달 요금인 송달료로, 채권자 수에 비례하여 부과되며 2026년 기준 채권자 수가 늘어날수록 송달 비용도 증가하게 됩니다. 셋째는 파산관재인 선임 비용으로, 법원이 채무자의 자산을 투명하게 조사하기 위해 선임하는 파산관재인 보수이며 일반적으로 30만 원에서 많게는 수백만 원까지 부과될 수 있습니다.</p>
+
+        <h3>전문 법률 대리인 수임료 비교</h3>
+        <p>변호사나 법무사 등 전문 대리인을 통해 사건을 위임할 때 발생하는 비용은 사건의 복잡성과 채권자 규모, 그리고 의뢰인이 거주하는 지역에 따라 견적이 달라집니다. 인터넷에 범람하는 저렴한 곳이나 싼곳 광고만을 보고 선택했다가, 복잡한 서류 보정 작업을 지원받지 못해 결국 사건이 기각되는 안타까운 사례가 발생하곤 합니다.</p>
+        
+        <p>통상적인 대리인 수임료 평균 가격대는 다음과 같습니다. 채권자 수가 5개 이하인 단순 사건의 경우 평균 100만 원 내외로 책정되며, 채권자가 10개 이상으로 복잡하고 세금 체납이나 사금융 채무가 혼재되어 있는 복합적인 사건의 경우 150만 원에서 250만 원 선의 금액이 예상됩니다. 일시 지불이 어려운 분들을 위해 최근 다수의 전문 법무법인에서는 무이자 분할 납부 혜택을 제공하거나 카드 할부를 지원하는 등 다양한 결제 방식과 할인 이벤트를 실시하고 있습니다.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>비용 세부 항목</th>
+                    <th>납부 대상</th>
+                    <th>평균 소요 금액대</th>
+                    <th>비용 절감 팁 및 특징</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>정부 수입인지대</td>
+                    <td>해당 법원</td>
+                    <td>1,800원 ~ 2,000원</td>
+                    <td>온라인 전자소송 접수 시 10% 추가 할인 적용</td>
+                </tr>
+                <tr>
+                    <td>우편 송달료</td>
+                    <td>해당 법원</td>
+                    <td>채권자 수 * 10회분 내외</td>
+                    <td>채권자 수를 명확히 식별하여 누락 및 낭비 차단</td>
+                </tr>
+                <tr>
+                    <td>파산관재인 선임 예납금</td>
+                    <td>법원 지정 예납계좌</td>
+                    <td>기본 30만 원 ~ 최고 150만 원</td>
+                    <td>고령자, 기초생활수급자 등 취약계층은 면제 또는 국선지원 가능</td>
+                </tr>
+                <tr>
+                    <td>대리인 수임료 (변호사/법무사)</td>
+                    <td>선택 법률 대리인</td>
+                    <td>100만 원 ~ 250만 원 내외</td>
+                    <td>단순히 가격이 제일 저렴한 곳보다 분할 납부 가능 여부 확인 권장</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="regional-trends">
+        <span id="regional-trends-anchor" class="anchor"></span>
+        <h2>4. 전국 회생법원별 특성과 지역별 개인파산 처리 속도 비교 분석</h2>
+        <p>거주지에 따라 관할 법원이 결정되며, 각 법원마다 심사 강도와 서류 보정 요구 수준, 면책 결정이 나기까지의 기간에 상당한 차이가 존재합니다. 2026년 기준으로 서울회생법원, 부산회생법원, 대구회생법원, 수원회생법원, 인천지방법원, 대전지방법원, 광주지방법원 등 주요 거점 법원의 특성을 명확히 파악하고 대응하는 것이 매우 중요합니다.</p>
+
+        <h3>수도권 및 광역시 법원별 경향</h3>
+        <p>서울회생법원은 실무 준칙을 가장 선진적으로 적용하고 있어 심사 기준이 명확하고 속도가 신속하다는 장점이 있습니다. 청년층의 구제율이 타 지역에 비해 상대적으로 관대한 편이며, 파산관재인 선임 예납 비용도 비교적 저렴하게 시작하는 사례가 많습니다. 경기도 수원, 고양, 용인, 성남, 부천, 안산, 화성, 남양주, 안양, 평택, 의정부, 파주, 시흥, 김포 등 수도권 대부분 지역의 관할 법원 역시 최근에는 회생법원 체제로 전문화되면서 전반적인 심사 과정이 예측 가능해졌습니다.</p>
+        
+        <p>반면, 충청 및 남부 지방 관할인 청주, 전주, 천안, 김해, 포항, 창원, 제주, 원주, 구미, 아산, 양산 등 지방법원 관할 구역은 담당 재판부와 관재인의 성향에 따라 가용한 소득에 대한 검증을 보다 엄격히 수행할 수 있습니다. 자녀가 있어 생계비 인정을 더 받고자 하거나 고령 부모를 부양가족으로 소명하고자 하는 경우, 각 지방법원 관재인의 소명 자료 요구 수준이 한층 더 까다로우므로 사전에 충분한 서류 구비가 필수적입니다.</p>
+    </section>
+
+    <section id="community-reviews">
+        <span id="community-reviews-anchor" class="anchor"></span>
+        <h2>5. 주요 인터넷 커뮤니티 실제 이용자 후기 및 동향</h2>
+        <p>개인파산이나 개인회생을 준비하는 분들이 가장 생생한 정보를 공유하는 공간은 다양한 금융 및 직장인 커뮤니티입니다. 디시인사이드 개인회생 갤러리나 보배드림, 펨코, 에펨코리아와 같은 온라인 소통 공간에서 자주 언급되는 실제 신청자들의 고민과 성공 사례를 한데 모아 종합해 드립니다.</p>
+
+        <h3>커뮤니티 후기에서 드러난 오해와 진실</h3>
+        <p>인터넷 커뮤니티에는 간혹 브로커 업체의 허위 광고 글이나 사은품 지급, 현금지원, 상품권 제공 등의 파격 혜택 제안을 유도하는 신규 가입 이벤트 광고가 있어 혼선을 주기도 합니다. 그러나 변호사법 위반의 소지가 있는 비정상적인 유인책에 현혹되기보다는 실질적인 면책률과 보정 처리 노하우가 축적된 브랜드를 선택하는 것이 안심할 수 있는 정석적인 길입니다.</p>
+        
+        <p>최근에는 금융 플랫폼인 토스 앱이나 카카오톡 서비스와 연계하여 편리하게 개인 부채 현황과 채권자 목록을 한눈에 비교하고 계산하는 어플리케이션 기능도 널리 쓰이고 있습니다. 또한 챗지피티(ChatGPT), 제미나이(Gemini) 같은 최신 인공지능 도구를 활용해 법률 용어를 번역하고 예상 서류 준비법을 익혀 컨설팅을 받는 등 테크놀로지를 영리하게 활용하는 스마트한 금융 소비자가 크게 증가하고 있습니다.</p>
+    </section>
+
+    <section id="trust-links">
+        <span id="trust-links-anchor" class="anchor"></span>
+        <h2>6. 신뢰할 수 있는 공인 정보 및 외부 공식 사이트 안내</h2>
+        <p>잘못된 인터넷 블로그 정보로 인한 피해를 예방하기 위해서는 법적으로 확실하고 신뢰도 높은 국가 기관 및 공식 자문 기구의 데이터베이스를 직접 대조하여 교차 확인해 보시는 자세가 필요합니다.</p>
+        
+        <ol style="line-height: 2;">
+            <li><a href="https://recoverybylawsp.koreahankang.com" target="_blank" rel="noopener noreferrer">개인파산 및 회생 맞춤형 전문 종합 지원 센터 (reliabledone 서브도메인 지원 사이트)</a></li>
+            <li><a href="https://help.scourt.go.kr" target="_blank" rel="noopener noreferrer">대한민국 법원 전자민원센터 (공식 소송 서류 양식 및 절차 확인 가능)</a></li>
+            <li><a href="https://www.klac.or.kr" target="_blank" rel="noopener noreferrer">대한법률구조공단 (취약계층을 위한 무료 법률 상담 서비스 및 국선 파산 정보 제공)</a></li>
+            <li><a href="https://www.ccrs.or.kr" target="_blank" rel="noopener noreferrer">신용회복위원회 (워크아웃 제도 비교 및 채무조정 합동 설명 제공)</a></li>
+            <li><a href="https://slb.scourt.go.kr" target="_blank" rel="noopener noreferrer">서울회생법원 공식 홈페이지 (회생 및 파산 신청인을 위한 종합 실무 정보 수록)</a></li>
+            <li><a href="https://www.law.go.kr" target="_blank" rel="noopener noreferrer">국가법령정보센터 (채무자 회생 및 파산에 관한 법률 등 명문화된 관련 조문 제공)</a></li>
+        </ol>
+    </section>
+
+    <section id="faq-section">
+        <span id="faq-section-anchor" class="anchor"></span>
+        <h2>7. 개인파산상담 분야 자주 묻는 질문 (FAQ)</h2>
+        <p>파산을 고민하시는 채무자들이 상담 시 가장 집중적으로 물어보시는 항목을 골라 객관적이고 정확한 변호 및 법률 실무 답변을 전달해 드립니다.</p>
+
+        <h3>Q1. 도박이나 비트코인 투자 실패로 인해서 발생한 빚도 파산 신청 및 면책이 가능한가요?</h3>
+        <p>법률상 도박, 가상자산 투자, 해외주식 거래 등의 사행성 채무는 원칙적으로 면책불허가 사유에 해당할 수 있습니다. 그러나 법률대리인을 통해 반성의 빛이 뚜렷하고 과거의 잘못을 청산하기 위해 노력한 정황을 강력히 입증하면 법원은裁量(재량)면책 제도를 활용하여 파산 및 전액 면책 결정을 내려주기도 합니다. 따라서 무조건 포기하기보다는 반드시 정식 상담을 통해 가능성을 타진해야 합니다.</p>
+
+        <h3>Q2. 파산 신청 사실이 가족들이나 다니고 있는 직장에 자동으로 알려지게 되나요?</h3>
+        <p>일반적인 생각과 달리 파산 선고를 받았다고 해서 본인의 부모님이나 자녀, 혹은 현재 근무하고 있는 회사에 법원에서 우편물이나 알림을 임의로 전달하는 시스템은 존재하지 않습니다. 다만, 채권자인 금융기관 등으로부터 오는 우편물이 자택으로 수령되는 과정에서 노출되는 경우가 많으므로 대리인 위임 계약을 통해 송달 장소를 법률사무소로 변경 지정하여 가급적 사생활을 보호하는 비밀 유지 전략을 세울 수 있습니다.</p>
+
+        <h3>Q3. 면책 결정을 받으면 그동안 연체로 인해 압류되었던 급여나 통장, 부동산의 압류도 한 번에 해결할 수 있습니까?</h3>
+        <p>면책 선고가 완전히 확정되면 법원의 면책 결정문을 기초로 하여 기존 채권자들이 걸어두었던 압류, 가압류 등의 강제집행에 대한 취소 신청을 즉시 진행할 수 있습니다. 이 과정 또한 면책 절차가 완결된 후 별도의 집행해제 신청 절차를 밟아야 정상적으로 거래가 재개되므로 사후 관리를 철저히 해주는 전문 업체를 선임해야 불편을 최소화할 수 있습니다.</p>
+    </section>
+
+    <section id="consulting-form">
+        <span id="consulting-form-anchor" class="anchor"></span>
+        <h2>8. 2026년 맞춤형 신속 채무 구제 상세 상담 신청서</h2>
+        <p>신용 불량 등록, 독촉 통지서 송부, 채권추심 등으로 더는 정상적인 가계 경영이 불가능하다고 느껴지신다면, 즉시 전문적인 구제 경로를 개척하시길 조언해 드립니다. 본 상담 요청은 채무자의 신원을 안전하게 철저히 보장하며 비용 및 실무 상담 자료를 신속히 안내해 드리기 위함입니다.</p>
+        
+        <form action="/deep-consulting" method="POST" style="max-width:800px; margin:auto; padding: 25px; border: 2px dashed #0f766e; border-radius: 12px; background-color: #fafbfd;">
+            <h3>세부 상담을 위한 세부 문항 작성</h3>
+            
+            <label for="name">신청자 본인 이름 (필수 입력)</label>
+            <input type="text" id="name" name="name" required placeholder="예: 홍길동">
+
+            <label for="phone">연락 가능한 전화번호 (필수 입력)</label>
+            <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+">
+
+            <label for="consult-type">중점 문의 희망 사항 (필수 선택)</label>
+            <select id="consult-type" name="consult_type" required>
+                <option value="">문의할 내용을 한 가지 이상 선택해 주세요</option>
+                <option value="파산면책조건">본인의 파산 및 면책 최적 조건 해당 여부 문의</option>
+                <option value="비용분할">법원 예납금 및 대리인 수임료 무이자 분납 가능 조건 확인</option>
+                <option value="압류해제">지급명령, 통장 압류 및 급여 차압 신속 해제 방법 문의</option>
+                <option value="기 타">기타 사유로 인한 특수 채무(보증채무 등) 조정 절차</option>
+            </select>
+
+            <label for="current-debt-status">현재 처한 상세한 자산 및 부채 정황 소명</label>
+            <textarea id="current-debt-status" name="current_debt_status" rows="5" placeholder="예시: 현재 총 빚은 카드론 포함하여 약 7,000만 원 정도가 누적되었으나 수개월 전 일자리를 잃어 한 푼도 갚지 못하고 연체 중입니다. 가족 중 미성년 자녀가 2명 있고 재산은 원룸 임차 보증금 1,500만 원 외에는 전혀 없습니다. 이런 상황에서도 100% 면책이 가능한지 세심한 진단 상담을 희망합니다."></textarea>
+
+            <div style="margin: 20px 0; font-size: 0.9em; color: #4a5568;">
+                <input type="checkbox" id="privacy-agree" name="privacy_agree" required style="transform: scale(1.2); margin-right: 10px; cursor: pointer;">
+                <label style="display: inline; font-weight: normal; cursor: pointer;" for="privacy-agree">수집된 개인 및 금융 채무 정보는 파산 면책 등 관련 제도 적격성 분석 및 유선 상담 안내에 한하여 법률적으로 철저하게 안전하게 사용됨에 동의합니다.</label>
+            </div>
+
+            <button type="submit" class="btn-cta">안전하고 정직한 법률 상담 무료로 즉시 신청하기</button>
+        </form>
+    </section>
+
+  
